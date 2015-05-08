@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--        <link rel="stylesheet" type="text/css" href="/DataTables-1.10.7/media/css/jquery.dataTables.css">-->
+        <link rel="stylesheet" type="text/css" href="DataTables-1.10.7/media/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="jquery.csvToTable.js"></script>
+        <script src="DataTables-1.10.7/media/js/jquery.dataTables.min.js"></script>
+<!--        <script type="text/javascript" charset="utf8" src="/DataTables-1.10.7/media/js/jquery.dataTables.min.js"></script>-->
+        <script src="jquery.dataTables.columnFilter.js"></script>
+
+    </head>
+    
+    <body>
+        <header><h1>Minnesota State University Employee Salaries</h1></header>
+        
+        <div id="CSVTable"></div> 
+        
+    </body>  
+    
+    <!-- Kind of Working (Filters too wide) -->    
+<!--   <script>
+                $(function() {
+                    $('#CSVTable').CSVToTable('MSU_salary.csv',{tableClass:"salaries"}).bind("loadComplete",function() { 
+                       $('#salaries').DataTable( {
+                            initComplete: function () {
+                                this.api().columns().every( function () {
+                                    var column = this;
+                                    var select = $('<select><option value=""></option></select>')
+                                        .appendTo( $(column.footer()).empty() )
+                                        .on( 'change', function () {
+                                            var val = $.fn.dataTable.util.escapeRegex(
+                                                $(this).val()
+                                            );
+
+                                            column
+                                                .search( val ? '^'+val+'$' : '', true, false )
+                                                .draw();
+                                        } );
+
+                                    column.data().unique().sort().each( function ( d, j ) {
+                                        select.append( '<option value="'+d+'">'+d+'</option>' )
+                                    } );
+                                } );
+                            }
+                        } ); 
+                    }
+                )});          
+        </script>-->
+    
+    <!-- Working Filters as Text Boxes-->    
+    <script>
+            $(function() {
+                $('#CSVTable').CSVToTable('MSU_salary.csv',{tableClass:"salaries"}).bind("loadComplete",function() { 
+                    $('#salaries').dataTable().columnFilter(
+                    {
+                     aoColumns: [null,null,{type: "text"},{type: "text"},{type: "text"},{type: "text"},null,null,null]
+               });
+                }
+            )});        
+        </script>
+</html>

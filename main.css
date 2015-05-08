@@ -1,0 +1,40 @@
+header {
+    background-color:rebeccapurple;
+    height: 100px;
+    color:lightgoldenrodyellow;
+    text-align: center;
+    line-height: 100px;
+    text-transform: capitalize;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin:0% 5% ;
+    padding:10px;
+    text-align: left;
+    font-size: 13px;
+    font-family: sans-serif;
+}
+
+th {
+    color: mediumblue;
+    background-color: white;
+    font-size: 14px;
+    border-bottom: 3px solid mediumblue;
+    padding: 5px;
+    letter-spacing: 1px;
+}
+
+tr:nth-child(even) {
+    background-color: #FFF;
+    height: 40px;
+    padding: 5px;
+}
+tr:nth-child(odd) {
+    background-color:aliceblue;
+    height: 40px;
+    padding: 5px;
+}
